@@ -1,0 +1,19 @@
+curl 'http://localhost:3000/rides/1/bookings' \
+  -H 'Accept: text/vnd.turbo-stream.html, text/html, application/xhtml+xml' \
+  -H 'Accept-Language: de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/x-www-form-urlencoded;charset=UTF-8' \
+  -H 'Cookie: _fantastic_rides_session=TZ8xB%2BS9yz57FsE%2B0gatj7MY7ELrk7QWYLdQ03be5P4sVE3xsN753yzqEP4%2Ftw1xbf3gOFwoAWzA6VdytHE7wl87FmaI52y00mtQEB6JSxgfgTS2Od%2Fwb82YzwQcpfaJ5QPt%2Fs367H2HqtR5SBaSIidbl4jLon%2F6w6NW09qEPAM2Usqfa9QB9dScqrFRC2RWVWGozOKUc5WClXuXdIEgRDDI3YBiKq0h0IqRiTBEd35SOPQwda9ye6nhCNUHF4nbo5qgxSzE8xIacGTlVQpMwt0S2VInB9O0v%2F95Iuss1kmdmDSEVkLhTKGNvO4SJdcuZKcVlRpwuO2UFJJpgegVoNQxmE8TMwOx1YVTZAQ%2BYotrlivHM0iQMueh94la99FEE1sxk8JM7h7uQCi1sLCOGw%3D%3D--qF1JOP%2Fh04l38aUt--T5yxeD%2BFb%2Bu5q342Owyi9w%3D%3D' \
+  -H 'DNT: 1' \
+  -H 'Origin: http://localhost:3000' \
+  -H 'Referer: http://localhost:3000/rides/1' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36' \
+  -H 'X-CSRF-Token: 8eJmh8pgEmw4aZNWnEQf9WF4yMnFpPVENnnr6BYvimzSwvuZKDYV8b-1wIQiORjWkTeDQj7LOBUW-oqA_3I5Bg' \
+  -H 'sec-ch-ua: "Chromium";v="104", " Not A;Brand";v="99", "Google Chrome";v="104"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --data-raw 'authenticity_token=OewkN1KWRC42zdhAWNOZGTFEYVr1H9M4BIyg5_P-PlzfPNaczFKryGs-D4RYRrj9MxQWlhQXpYd3VPD5NyBSQw' \
+  --compressed

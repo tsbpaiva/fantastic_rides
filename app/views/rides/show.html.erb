@@ -15,4 +15,8 @@
   <p>Food is here</p>
 <%end%>
 
+<%= simple_form_for [@ride, @booking] do |f| %>
+<%= f.submit  %>
+<% end %>
+
 <%= link_to "Back to the rides",rides_path%>
