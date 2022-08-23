@@ -11,11 +11,9 @@ class BookingsController < ApplicationController
   end
 
   def update
-    raise
   end
 
   def index
-    raise
   end
 
   def show
