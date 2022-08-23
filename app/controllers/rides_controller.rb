@@ -1,11 +1,11 @@
 class RidesController < ApplicationController
+  before_action :set_ride, only: [:show, :edit, :update, :destroy]
   def index
     @rides = Ride.all
   end
 
   def show
     @ride = Ride.find(params[:id])
-    @booking = Booking.new
   end
 
   def new
@@ -23,12 +23,20 @@ class RidesController < ApplicationController
   end
 
   def update
+    @ride.update(ride_params)
+    redirect_to rides_path(@ride)
   end
 
   def destroy
+    @ride.destroy
+    redirect_to rides_path, status: :see_other
   end
 
   private
+
+  def set_ride
+    @ride = Ride.find(params[:id])
+  end
 
   def ride_params
     params.require(:ride).permit(:title, :starting_point, :destination, :image_url, :description, :price, :duration, :food_and_drinks, :magic, :entertainment, :seats, :ride_date)
