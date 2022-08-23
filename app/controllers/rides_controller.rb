@@ -15,7 +15,7 @@ class RidesController < ApplicationController
     @ride = Ride.new(ride_params)
     @ride.user = current_user
     @ride.save
-    #redirect_to ride_path(@ride)
+    redirect_to ride_path(@ride)
   end
 
   def edit
