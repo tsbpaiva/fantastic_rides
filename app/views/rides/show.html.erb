@@ -1,2 +1,18 @@
 <h1>Rides#show</h1>
 <p>Find me in app/views/rides/show.html.erb</p>
+
+<%= @ride.title %>
+
+<%= @ride.description %>
+<%= @ride.starting_point %>
+<%= @ride.destination %>
+<%= @ride.price %>
+<%= @ride.duration%>
+
+<%= @ride.seats %>
+
+<%if @ride.food_and_drinks%>
+  <p>Food is here</p>
+<%end%>
+
+<%= link_to "Back to the rides",rides_path%>

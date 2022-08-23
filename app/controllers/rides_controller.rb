@@ -1,8 +1,10 @@
 class RidesController < ApplicationController
   def index
+    @rides = Ride.all
   end
 
   def show
+    @ride = Ride.find(params[:id])
   end
 
   def new
@@ -13,7 +15,7 @@ class RidesController < ApplicationController
     @ride = Ride.new(ride_params)
     @ride.user = current_user
     @ride.save
-    #redirect_to ride_path(@ride)
+    redirect_to ride_path(@ride)
   end
 
   def edit
