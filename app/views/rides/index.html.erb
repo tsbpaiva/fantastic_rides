@@ -2,10 +2,17 @@
 <p>Find me in app/views/rides/index.html.erb</p>
 
 <% @rides.each do |ride| %>
+<p>
   <%= ride.title %>
 
 <%= ride.price %>
 <%= ride.starting_point %>
 <%= ride.destination %>
 <%= ride.seats %>
+
+<%= link_to "Delete this ride", ride_path(ride),
+data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+
+</p>
 <% end %>
