@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   resources :rides do
-    resources :bookings, only: [:index,:create, :update]
+    resources :bookings, only: [:index, :create, :update]
   end
   resources :bookings, only: [:destroy]
 
