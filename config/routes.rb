@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'bookings/create'
-  get 'bookings/destroy'
-  get 'bookings/update'
-  get 'bookings/index'
-  get 'bookings/show'
+  # get 'bookings/create'
+  # get 'bookings/destroy'
+  # get 'bookings/update'
+  # get 'bookings/index'
+  # get 'bookings/show'
   # get 'rides/index'
   # get 'rides/show'
   # get 'rides/new'
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   resources :rides do
-    resources :bookings, only: [:index, :show,:create, :update]
+    resources :bookings, only: [:index,:create, :update]
   end
   resources :bookings, only: [:destroy]
 
