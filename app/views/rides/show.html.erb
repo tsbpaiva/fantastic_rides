@@ -1,23 +1,30 @@
-<h1>Rides#show</h1>
-<p>Find me in app/views/rides/show.html.erb</p>
+<div class="container">
+<div class = "card-content">
 
-<%= @ride.title %>
+  <h2><%= @ride.title %></h2>
+  <div class="img">
+    <img src= "<%=@ride.image_url%>" >
+  </div>
+  <div class = "ride-content">
+    <ul>
 
-<%= @ride.description %>
-<%= @ride.starting_point %>
-<%= @ride.destination %>
-<%= @ride.price %>
-<%= @ride.duration%>
+    <p>
+    <%= @ride.description %>
+    </p>
+    <li><p>Origin : <%= @ride.starting_point %></p></li>
+    <li><p>Destination: <%= @ride.destination %></p></li>
+    <li><p>Price: <%= @ride.price %></p></li>
+    <li><p><%= @ride.duration%></p></li>
+    <li><p>Seats: <%= @ride.seats %></p></li>
+  </ul>
+  </div>
+  </div>
 
-<%= @ride.seats %>
-
-<%if @ride.food_and_drinks%>
-  <p>Food is here</p>
-<%end%>
-
+<div class="create_booking">
 <%= simple_form_for [@ride, @booking] do |f| %>
 <%= f.submit  %>
 <% end %>
+</div>
 
 <p>
 <%= link_to "Back to the rides",rides_path%>
@@ -25,3 +32,4 @@
 <p>
 <%= link_to "Update this ride", edit_ride_path(@ride) %>
 </p>
+</div>
