@@ -4,7 +4,11 @@ class BookingsController < ApplicationController
     @ride = Ride.find(params[:ride_id])
     @booking.ride = @ride
     @booking.user = current_user
-    @booking.save
+    if @booking.save
+      redirect_to ride_bookings_path(@ride)
+    else
+      render "new"
+    end
   end
 
   def destroy
