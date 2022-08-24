@@ -1,20 +1,30 @@
-<h1>Pages#home</h1>
-
-<%= simple_form_for :search, url: root_path, method: :get do |f| %>
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i> Search
-    </button>
+<body class='home-background'>
+  <%# banner %>
+  <div class='banner banner-home' style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://imageio.forbes.com/specials-images/dam/imageserve/765877054/960x0.jpg);">
+    <h1 class="home-h1-logo">Fantastic Rides</h1>
+    <h4 class="home-h4">Intergalactic shared rides with style</h4>
   </div>
-<% end %>
 
-<div>
-  <%= link_to 'This button is light', rides_path, class:'btn custom-btn-light m-3' %>
-</div>
+  <%# middle %>
+  <div class='container home-div'>
 
-<div>
-  <%= link_to 'This button is dark', rides_path, class:'btn custom-btn-dark m-3' %>
-</div>
+    <%# left %>
+    <div>
+    </div>
 
-<p>Find me in app/views/pages/home.html.erb</p>
+    <%# right %>
+    <div class='container'>
+      <p class='p-right'>Where do you want to go?</p>
+      <div>
+        <%= simple_form_for :search, url: rides_path, method: :get do |f| %>
+          <div class="search-form-control form-group div-80">
+            <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+            <button name="button" type="submit" class="btn custom-btn-dark">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <div>
+</body>

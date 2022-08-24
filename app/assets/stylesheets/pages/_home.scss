@@ -1,1 +1,27 @@
 // Specific CSS for your home-page
+.home-h1-logo {
+  font-family: $logo-font;
+  font-size: 56px !important;
+  margin-left: 230px !important;
+  color: rgb(237, 237, 237) !important;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+.home-h4 {
+  font-family: $body-font;
+  color: rgb(215, 214, 214);
+  margin-left: 210px;
+  padding: 20px;
+}
+
+.p-right {
+  font-size: 24px;
+}
+
+.home-background {
+  background-color: #111119;
+}
+
+.home-div {
+  background-color: #e8e8e8;
+}
