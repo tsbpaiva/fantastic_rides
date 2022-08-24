@@ -2,6 +2,9 @@ class RidesController < ApplicationController
   before_action :set_ride, only: [:show, :edit, :update, :destroy]
   def index
     @rides = Ride.all
+    if params['search']
+      @rides = Ride.where(destination: params['search']['query'])
+    end
   end
 
   def show

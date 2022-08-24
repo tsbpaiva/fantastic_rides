@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 puts "cleaning database"
 
-user = User.create(email: "fantasyridee@gmail.com", password: "fantasyridee")
+user = User.create(email: "fantasyriders@gmail.com", password: "fantasyriders101")
 
 rides = Ride.create(title: "Harrypotter",image_url: "https://www.universalstudioshollywood.com/tridiondata/ush/en/us/files/images/universal-potter-forbidden-journey-art-802x535.jpg", price: 2000, starting_point: "earth", destination: "moon", seats: 5, user: user)
 
