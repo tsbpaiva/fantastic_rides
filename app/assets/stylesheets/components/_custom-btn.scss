@@ -1,0 +1,26 @@
+.custom-btn-light {
+  color: $space-blue;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $pale-yellow;
+  transition: background 0.3s ease;
+}
+
+.custom-btn-light:hover {
+  background: $space-blue;
+  color:$pale-yellow;
+}
+
+
+.custom-btn-dark {
+  color: $pale-yellow;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $space-blue;
+  transition: background 0.3s ease;
+}
+
+.custom-btn-dark:hover {
+  background: $light-petrol;
+  color: $dark-blue;
+}
