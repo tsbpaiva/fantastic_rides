@@ -17,6 +17,25 @@
     </div>
 </div>
 
+<<<<<<< HEAD
+=======
+<img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+
+<% @rides.each do |ride| %>
+  <div>
+    <%= ride.title %>
+    <img src= "<%=ride.image_url%>" >
+    <%= ride.price %>
+    <%= ride.starting_point %>
+    <%= ride.destination %>
+    <%= ride.seats %>
+    <%= link_to "Delete this ride", ride_path(ride),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+    class: 'btn btn-danger' %>
+  </div>
+<% end %>
+
+>>>>>>> master
 <div class="footer">
   <div class="footer-links">
     <a href="#"><i class="fab fa-github"></i></a>
