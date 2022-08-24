@@ -5,6 +5,7 @@ class RidesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
@@ -14,8 +15,11 @@ class RidesController < ApplicationController
   def create
     @ride = Ride.new(ride_params)
     @ride.user = current_user
-    @ride.save
-    redirect_to ride_path(@ride)
+    if @ride.save
+      redirect_to ride_path(@ride)
+    else
+      render "new"
+    end
   end
 
   def edit
