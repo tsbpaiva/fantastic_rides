@@ -1,25 +1,21 @@
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-  <div class="container">
-    <h1>Find your perfect Ride</h1>
-    <p>And go whereever your Heart graves to</p>
-  </div>
+<div class="container">
+  <h2 class="text-center">Find your fabulous ride</h2>
+    <div class="cards">
+      <% @rides.each do |ride| %>
+        <div class="card-category">
+          <%= ride.title %>
+          <%= ride.price %>
+          <%= ride.starting_point %>
+          <%= ride.destination %>
+          <%= ride.seats %>
+            <div><%= link_to "Delete", ride_path(ride),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none" %>
+            </div>
+        </div>
+      <% end %>
+    </div>
 </div>
-
-<img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
-
-<% @rides.each do |ride| %>
-  <p>
-    <%= ride.title %>
-    <%= ride.price %>
-    <%= ride.starting_point %>
-    <%= ride.destination %>
-    <%= ride.seats %>
-    <%= link_to "Delete this ride", ride_path(ride),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-    class: 'btn btn-danger' %>
-  </p>
-<% end %>
 
 <div class="footer">
   <div class="footer-links">
