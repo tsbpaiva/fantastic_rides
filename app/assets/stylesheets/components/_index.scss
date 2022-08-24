@@ -9,3 +9,15 @@
 @import "card";
 @import "grid";
 @import "search-bar";
+
+.container-index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.btn-index {
+  margin-top: 15px;
+  text-decoration: none;
+}
