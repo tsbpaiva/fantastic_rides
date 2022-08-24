@@ -9,8 +9,9 @@
 <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
 
 <% @rides.each do |ride| %>
-  <p>
+  <div>
     <%= ride.title %>
+    <img src= "<%=ride.image_url%>" >
     <%= ride.price %>
     <%= ride.starting_point %>
     <%= ride.destination %>
@@ -18,7 +19,7 @@
     <%= link_to "Delete this ride", ride_path(ride),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
     class: 'btn btn-danger' %>
-  </p>
+  </div>
 <% end %>
 
 <div class="footer">
