@@ -2,8 +2,9 @@
 <p>Find me in app/views/rides/index.html.erb</p>
 
 <% @rides.each do |ride| %>
-  <p>
+  <div>
     <%= ride.title %>
+    <img src= "<%=ride.image_url%>" >
     <%= ride.price %>
     <%= ride.starting_point %>
     <%= ride.destination %>
@@ -11,5 +12,5 @@
     <%= link_to "Delete this ride", ride_path(ride),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
     class: 'btn btn-danger' %>
-  </p>
+  </div>
 <% end %>
