@@ -1,35 +1,39 @@
 <div class="container">
-<div class = "card-content">
-
-  <h2><%= @ride.title %></h2>
-  <div class="img">
-    <img src= "<%=@ride.image_url%>" >
-  </div>
-  <div class = "ride-content">
-    <ul>
-
-    <p>
-    <%= @ride.description %>
-    </p>
-    <li><p>Origin : <%= @ride.starting_point %></p></li>
-    <li><p>Destination: <%= @ride.destination %></p></li>
-    <li><p>Price: <%= @ride.price %></p></li>
-    <li><p><%= @ride.duration%></p></li>
-    <li><p>Seats: <%= @ride.seats %></p></li>
-  </ul>
-  </div>
+  <div class = "card-content">
+    <h2><%= @ride.title %></h2>
+    <div class="img">
+      <img src= "<%=@ride.image_url%>" >
+    </div>
+    <div class = "ride-content">
+      <ul>
+        <p>
+        <%= @ride.description %>
+        </p>
+        <li><p>Origin : <%= @ride.starting_point %></p></li>
+        <li><p>Destination: <%= @ride.destination %></p></li>
+        <li><p>Price: <%= @ride.price %></p></li>
+        <li><p><%= @ride.duration%></p></li>
+        <li><p>Seats: <%= @ride.seats %></p></li>
+      </ul>
+    </div>
   </div>
 
-<div class="create_booking">
-<%= simple_form_for [@ride, @booking] do |f| %>
-<%= f.submit  %>
-<% end %>
-</div>
+  <div class="create_booking">
+    <% if user_signed_in? %>
+      <%= simple_form_for [@ride, @booking] do |f| %>
+      <%= f.submit  %>
+      <% end %>
+      <%= link_to "Update this ride", edit_ride_path(@ride) %>
+      <%= link_to "Delete this ride", ride_path(@ride),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-danger"
+      %>
+    <% else %>
+      <%= link_to "Sign in to book this ride", new_user_session_path(@ride), class:'btn custom-btn-light' %>
+    <% end %>
+  </div>
 
-<p>
-<%= link_to "Back to the rides",rides_path%>
-</p>
-<p>
-<%= link_to "Update this ride", edit_ride_path(@ride) %>
-</p>
+  <p>
+  <%= link_to "Go back to all rides",rides_path%>
+  </p>
+
 </div>
