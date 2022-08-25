@@ -1,15 +1,39 @@
-<h2><%= @ride.title %></h2>
-
-<% @bookings.each do|booking| %>
-  <p>Booking ID: </p><%= booking.id %>
-  <p>Status: </p><%= booking.status %>
+<div class="container">
+<h2 class="text-center mt-3"><%= @ride.title %> Passengers on <%= @ride.ride_date %></h2>
+<div class="cards">
+  <% @bookings.each do|booking| %>
   <% if booking.status == "pending" %>
-    <%= simple_form_for [@ride, booking] do |f| %>
-      <%= f.submit  %>
+  <div class="card-category d-flex align-items-start">
+    <div class="p-3">
+      <h3><strong>Passenger ID: </strong><%= booking.user_id %></h3>
+      <p><strong>Booking ID: </strong><%= booking.id %></p>
+      <p><strong>Status: </strong><%= booking.status %></p>
+      <p class="pt-1.8">
+        <%= simple_form_for [@ride, booking] do |f| %>
+          <%= f.submit 'Accept', class: "custom-btn-dark"%>
+        <% end %>
+        <% else %>
+        <div class="card-category d-flex align-items-start bg-success">
+    <div class="p-3">
+      <h3><strong>Passenger ID: </strong><%= booking.user_id %></h3>
+      <p><strong>Booking ID: </strong><%= booking.id %></p>
+      <p><strong>Status: </strong><%= booking.status %></p>
+      <p class="pt-1.8">
+      </div>
+    </div>
+      <% end %>
     <% end %>
+
   <% end %>
 <% end %>
 
 <p>
 <%= link_to "Back to the rides",rides_path%>
 </p>
+
+      </div>
+    </div>
+  </div>
+
+<p><%= link_to "Back to my rides",profile_path, class:"text-decoration-none" %></p>
+</div>

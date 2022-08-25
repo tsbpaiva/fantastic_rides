@@ -1,15 +1,35 @@
-
-<div class="container">
-  <div class="ride">
-    <% @rides.each do|ride| %>
-    <p>
-      <%= ride.title %>
-    </p>
-      <%= link_to "Bookings for this ride",ride_bookings_path(ride) %>
-      <% if ride.photo.attached? %>
-        <%= cl_image_tag ride.photo.key, height: 200, width: 400, crop: :fill %>
-      <% end %>
-
-<% end %>
+<%# banner %>
+<div>
+  <div class='banner profile-banner' style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://cdn.mos.cms.futurecdn.net/RT5MccvxwUFJdEWt5dT49Y.jpg);">
+  </div>
+  <%= image_tag "tribore.jpg", class: "profile-avatar" %>
 </div>
+
+<%# bookings %>
+<div class='container flex-row justify-content-between'>
+  <div class='row'>
+    <%# my rides %>
+    <div class='col-sm'>
+      <h1>My rides</h1>
+          <div class="ride">
+             <% @rides.each do|ride| %>
+            <p>
+              <%= ride.title %>
+            </p>
+             <%= link_to "Bookings for this ride",ride_bookings_path(ride) %>
+             <% if ride.photo.attached? %>
+              <%= cl_image_tag ride.photo.key, height: 200, width: 400, crop: :fill %>
+             <% end %>
+          <% end %>
+        </div>
+
+    <%# my ride requests %>
+    <div class='col-sm'>
+      <h1>My ride requests</h1>
+      <% @bookings.each do |booking| %>
+        <h5><%= booking.ride.title %></h5>
+        <p class='mx-4'><%= booking.status %></p>
+      <% end %>
+    </div>
+  </div>
 </div>
