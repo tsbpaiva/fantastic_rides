@@ -20,6 +20,10 @@
     <%# my ride requests %>
     <div class='col-sm'>
       <h1>My ride requests</h1>
+      <% @bookings.each do |booking| %>
+        <h5><%= booking.ride.title %></h5>
+        <p class='mx-4'><%= booking.status %></p>
+      <% end %>
     </div>
   </div>
 </div>
