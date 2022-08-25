@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  # get 'bookings/create'
+  # get 'profile/index'
+  # get 'profile/show'
+  # get 'profile/update'
+
   # get 'bookings/destroy'
   # get 'bookings/update'
   # get 'bookings/index'
@@ -14,6 +17,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: "pages#home"
+  get 'profile', to:"profile#index"
+  get 'profile/:ride_id/bookings', to:"profile#show", as: :profile_ride_bookings
   resources :rides do
     resources :bookings, only: [:index, :create, :update]
   end
