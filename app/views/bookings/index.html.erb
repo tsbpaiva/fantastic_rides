@@ -1,4 +1,14 @@
-<h1>Booking was succesfull</h1>
+<h2><%= @ride.title %></h2>
+
+<% @bookings.each do|booking| %>
+  <p>Booking ID: </p><%= booking.id %>
+  <p>Status: </p><%= booking.status %>
+  <% if booking.status == "pending" %>
+    <%= simple_form_for [@ride, booking] do |f| %>
+      <%= f.submit  %>
+    <% end %>
+  <% end %>
+<% end %>
 
 <p>
 <%= link_to "Back to the rides",rides_path%>

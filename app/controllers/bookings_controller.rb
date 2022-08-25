@@ -6,8 +6,9 @@ class BookingsController < ApplicationController
     @ride = Ride.find(params[:ride_id])
     @booking.ride = @ride
     @booking.user = current_user
+
     if @booking.save
-      redirect_to ride_bookings_path(@ride)
+      redirect_to rides_path
     else
       render "new"
     end
@@ -17,11 +18,18 @@ class BookingsController < ApplicationController
   end
 
   def update
+
+    @booking = Booking.find(params[:id])
+    @booking.update(status: "confirmed")
+
   end
 
   def index
+    @ride = Ride.find(params[:ride_id])
+    @bookings = @ride.bookings
   end
 
   def show
+
   end
 end
