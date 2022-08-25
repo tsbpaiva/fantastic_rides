@@ -11,11 +11,17 @@
     <%# my rides %>
     <div class='col-sm'>
       <h1>My rides</h1>
-        <% @rides.each do|ride| %>
-          <%= ride.title %>
-          <%= link_to "Bookings for this ride",ride_bookings_path(ride) %>
-        <% end %>
-    </div>
+          <div class="ride">
+             <% @rides.each do|ride| %>
+            <p>
+              <%= ride.title %>
+            </p>
+             <%= link_to "Bookings for this ride",ride_bookings_path(ride) %>
+             <% if ride.photo.attached? %>
+              <%= cl_image_tag ride.photo.key, height: 200, width: 400, crop: :fill %>
+             <% end %>
+          <% end %>
+        </div>
 
     <%# my ride requests %>
     <div class='col-sm'>
