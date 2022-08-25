@@ -1,22 +1,19 @@
-<h1>Rides#edit</h1>
-<p>Find me in app/views/rides/edit.html.erb</p>
+<div class='container'>
+<h1>Edit your ride</h1>
+  <%= simple_form_for @ride do |f| %>
+    <%= f.input :title %>
+    <%= f.input :starting_point %>
+    <%= f.input :destination %>
+    <%= f.input :image_url %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :duration %>
+    <%= f.input :seats %>
+    <%= f.input :ride_date %>
+    <%= f.input :food_and_drinks, as: :boolean %>
+    <%= f.input :entertainment, as: :boolean %>
+    <%= f.input :magic, as: :boolean %>
+    <%= f.submit %>
 
-
-<h1>Edit a ride</h1>
-
-<%= simple_form_for @ride do |f| %>
-  <%= f.input :title %>
-  <%= f.input :starting_point %>
-  <%= f.input :destination %>
-  <%= f.input :image_url %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :duration %>
-  <%= f.input :seats %>
-  <%= f.input :ride_date %>
-  <%= f.input :food_and_drinks, as: :boolean %>
-  <%= f.input :entertainment, as: :boolean %>
-  <%= f.input :magic, as: :boolean %>
-  <%= f.submit %>
-
-<% end %>
+  <% end %>
+</div>

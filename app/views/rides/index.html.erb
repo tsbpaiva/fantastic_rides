@@ -11,10 +11,9 @@
           <p><strong>Origin: </strong><%= ride.starting_point %></p>
           <p><strong>Destination: </strong><%= ride.destination %></p>
           <p><strong>Seats: </strong><%= ride.seats %></p>
-            <div><%= link_to "Delete", ride_path(ride),
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none" %>
+          <div>
             <%=link_to "Details", ride_path(ride), class:"text-decoration-none" %></div>
-            </div>
+          </div>
         </div>
       <% end %>
     </div>
