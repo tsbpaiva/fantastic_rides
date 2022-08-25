@@ -32,8 +32,15 @@
     <% end %>
   </div>
 
-  <p>
-  <%= link_to "Go back to all rides",rides_path%>
-  </p>
+<div class="create_booking">
+<%= simple_form_for [@ride, @booking] do |f| %>
+
+<%= f.submit  %>
+<% end %>
+</div>
+
+ <p>
+ <%= link_to "Go back to all rides",rides_path%>
+ </p>
 
 </div>
