@@ -48,6 +48,6 @@ class RidesController < ApplicationController
   end
 
   def ride_params
-    params.require(:ride).permit(:title, :starting_point, :destination, :image_url, :description, :price, :duration, :food_and_drinks, :magic, :entertainment, :seats, :ride_date)
+    params.require(:ride).permit(:title, :starting_point, :destination, :image_url, :description, :price, :duration, :food_and_drinks, :magic, :entertainment, :seats, :ride_date, :photo)
   end
 end

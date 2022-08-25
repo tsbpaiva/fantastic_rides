@@ -1,6 +1,15 @@
-<h1>Profile#index</h1>
-<p>Find me in app/views/profile/index.html.erb</p>
-<% @rides.each do|ride| %>
-<%= ride.title %>
-<%= link_to "Bookings for this ride",ride_bookings_path(ride) %>
+
+<div class="container">
+  <div class="ride">
+    <% @rides.each do|ride| %>
+    <p>
+      <%= ride.title %>
+    </p>
+      <%= link_to "Bookings for this ride",ride_bookings_path(ride) %>
+      <% if ride.photo.attached? %>
+        <%= cl_image_tag ride.photo.key, height: 200, width: 400, crop: :fill %>
+      <% end %>
+
 <% end %>
+</div>
+</div>

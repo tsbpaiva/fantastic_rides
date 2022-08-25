@@ -4,9 +4,12 @@
     <div class="cards">
       <% @rides.each do |ride| %>
         <div class="card-category">
-          <img src= "<%=ride.image_url%>" >
+
           <div class="m-3">
           <h4><%= ride.title %></h4>
+          <% if ride.photo.attached? %>
+            <%= cl_image_tag ride.photo.key, height: 100, width: 500, crop: :fill %>
+          <% end %>
           <p><strong>Price: </strong><%= ride.price %>€</p>
           <p><strong>Origin: </strong><%= ride.starting_point %></p>
           <p><strong>Destination: </strong><%= ride.destination %></p>
