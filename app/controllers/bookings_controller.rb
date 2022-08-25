@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
 
     @booking = Booking.find(params[:id])
     @booking.update(status: "confirmed")
+    redirect_to ride_bookings_path
 
   end
 
