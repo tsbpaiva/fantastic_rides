@@ -1,46 +1,50 @@
 <div class="container">
-  <div class = "card-content">
-    <h2><%= @ride.title %></h2>
-    <% if @ride.photo.attached? %>
-        <%= cl_image_tag @ride.photo.key, height: 200, width: 400, crop: :fill %>
-    <% end %>
-    <div class = "ride-content">
-      <ul>
-        <p>
-        <%= @ride.description %>
-        </p>
-        <li><p>Origin : <%= @ride.starting_point %></p></li>
-        <li><p>Destination: <%= @ride.destination %></p></li>
-        <li><p>Price: <%= @ride.price %></p></li>
-        <li><p><%= @ride.duration%></p></li>
-        <li><p>Seats: <%= @ride.seats %></p></li>
-      </ul>
-    </div>
-  </div>
+  <h1><%= @ride.title %></h1>
+  <em>"<%= @ride.description %>"</em>
+    <div class="wrapper mb-3 mt-3">
+      <div class= "column">
+        <% if @ride.photo.attached? %>
+            <%= cl_image_tag @ride.photo.key, height: 300, width: 450, crop: :fill, class: "rounded"%>
+        <% end %>
+        </div>
 
-  <div class="create_booking">
+      <div class = "column m3">
+          <h3 class="mb-3">Details:</h3>
+          <div class="m-3"><i class="fa-solid fa-location-dot fa-2x"></i> <%= @ride.starting_point %></div>
+          <div class="m-3"><i class="fa-solid fa-flag-checkered fa-2x"></i> <%= @ride.destination %></div>
+          <div class="m-3"><i class="fa-solid fa-dollar-sign fa-2x"></i> <%= @ride.price %></div>
+          <div class="m-3"><i class="fa-regular fa-hourglass fa-2x"></i> <%= @ride.duration%></div>
+          <div class="m-3"><i class="fa-solid fa-people-group fa-2x"></i> <%= @ride.seats %></div>
+      </div>
+      <div class="column m3">
+      <h3>Highlights:</h3>
+      <% if @ride.magic == true %>
+      <div><i class="fa-solid fa-wand-magic-sparkles fa-2x m-3"></i> Magic</div>
+      <%end%>
+      <% if @ride.food_and_drinks == true %>
+      <div><i class="fa-solid fa-dollar-sign fa-2x m-3"></i>Food & Drinks included</div>
+      <%end%>
+      <% if @ride.entertainment == true %>
+      <i class="fa-solid fa-gifts fa-2x m-3"></i>Entertainment on Board</div>
+      <%end%>
+      </div>
+
+  <div class="create_booking mb-3">
     <% if user_signed_in? %>
-      <%= simple_form_for [@ride, @booking] do |f| %>
-      <%= f.submit  %>
+      <div><%= simple_form_for [@ride, @booking] do |f| %>
+       <%= f.submit "Book", class: 'custom-btn-light' %>
       <% end %>
-      <%= link_to "Update this ride", edit_ride_path(@ride) %>
-      <%= link_to "Delete this ride", ride_path(@ride),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-danger"
-      %>
+      </div>
+      <div class="mt-3">
+      <%= link_to "Update", edit_ride_path(@ride), class: "custom-btn-dark text-decoration-none" %>
+      <%= link_to "Delete", ride_path(@ride),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"custom-btn-dark text-decoration-none"
+      %></div>
     <% else %>
       <%= link_to "Sign in to book this ride", new_user_session_path(@ride), class:'btn custom-btn-light' %>
     <% end %>
   </div>
 
-<div class="create_booking">
-<%= simple_form_for [@ride, @booking] do |f| %>
-
-<%= f.submit  %>
-<% end %>
-</div>
-
- <p>
- <%= link_to "Go back to all rides",rides_path%>
- </p>
+ <div><%= link_to "Go back to all rides",rides_path, class:"text-decoration-none"%></div>
 
 </div>
