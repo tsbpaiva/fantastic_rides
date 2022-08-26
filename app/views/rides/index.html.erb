@@ -3,23 +3,22 @@
   <h1 class="text-center">Find your fabulous ride</h1>
     <div class="cards">
       <% @rides.each do |ride| %>
-        <div class="card-category">
-
-          <div class="m-3">
-          <h4><%= ride.title %></h4>
-          <% if ride.photo.attached? %>
-            <%= cl_image_tag ride.photo.key, height: 100, width: 500, crop: :fill %>
-          <% end %>
-          <p><strong>Price: </strong><%= ride.price %>€</p>
-          <p><strong>Origin: </strong><%= ride.starting_point %></p>
-          <p><strong>Destination: </strong><%= ride.destination %></p>
-          <p><strong>Seats: </strong><%= ride.seats %></p>
-          <div>
-            <%=link_to "Details", ride_path(ride), class:"text-decoration-none" %></div>
+        <%=link_to ride_path(ride) do %>
+          <div class="ride-card-category"
+          style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+          url('<%= cl_image_path ride.photo.key if ride.photo.attached?%>')">
+            <div class="small-card">
+              <p><%= ride.title %><br>
+              Starting point: <%= ride.starting_point.capitalize %><br>
+              Destination: <%= ride.destination.capitalize %><br>
+              Price: <%= ride.price%><br>
+              </p>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
+
 
   <div class='container container-index'>
     <%= link_to "Create a new ride!", new_ride_path, class:'custom-btn-dark btn-index'%>

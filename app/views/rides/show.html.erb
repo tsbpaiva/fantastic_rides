@@ -7,7 +7,6 @@
             <%= cl_image_tag @ride.photo.key, height: 300, width: 450, crop: :fill, class: "rounded"%>
         <% end %>
         </div>
-
       <div class = "column m3">
           <h3 class="mb-3">Details:</h3>
           <div class="m-3"><i class="fa-solid fa-location-dot fa-2x"></i>  <%= @ride.starting_point %></div>
@@ -28,7 +27,6 @@
       <i class="fa-solid fa-gifts fa-2x m-3"></i>Entertainment on Board</div>
       <%end%>
       </div>
-
   <div class="create_booking mb-3">
     <% if user_signed_in? %>
       <div><%= simple_form_for [@ride, @booking] do |f| %>
