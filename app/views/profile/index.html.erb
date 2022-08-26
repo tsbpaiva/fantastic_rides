@@ -35,6 +35,11 @@
         <% @bookings.each do |booking| %>
           <h5><%= booking.ride.title %></h5>
           <p class='mx-4'><%= booking.status %></p>
+          <% if booking.status != "confirmed"%>
+            <%= link_to 'Cancel this booking', booking_path(booking),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+            class:'btn custom-btn-light' %>
+          <% end %>
         <% end %>
       <% else %>
         <p>You haven't requested any rides yet</p>
