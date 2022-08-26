@@ -1,9 +1,9 @@
 <div class="container">
   <div class = "card-content">
     <h2><%= @ride.title %></h2>
-    <div class="img">
-      <img src= "<%=@ride.image_url%>" >
-    </div>
+    <% if @ride.photo.attached? %>
+        <%= cl_image_tag @ride.photo.key, height: 200, width: 400, crop: :fill %>
+    <% end %>
     <div class = "ride-content">
       <ul>
         <p>
