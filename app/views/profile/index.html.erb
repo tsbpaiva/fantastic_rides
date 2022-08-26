@@ -6,34 +6,42 @@
 </div>
 
 <%# bookings %>
-<div class='container flex-row justify-content-between'>
+<div class='container justify-content-between'>
   <div class='row'>
     <%# my rides %>
-    <div class='col-lg-6'>
-      <h1>My rides</h1>
-          <div class="ride">
-            <% if @rides.exists? %>
-              <% @rides.each do|ride| %>
-                <p>
-                  <%= ride.title %>
-                </p>
-                <% if ride.bookings.where(status: "pending").count == 0 %>
-                  <%= link_to "Bookings", ride_bookings_path(ride) %>
-                <% else %>
-                  <%= link_to "Bookings", ride_bookings_path(ride) %>You have <%= ride.bookings.where(status: "pending").count %> pending booking request(s)
-                <% end %>
-                <% if ride.photo.attached? %>
-                  <%= cl_image_tag ride.photo.key, height: 200, width: 400, crop: :fill %>
-                <% end %>
-              <% end %>
-            <% else %>
-              <p>You haven't created any rides yet</p>
-              <%= link_to "Create a ride now!", new_ride_path, class:'btn custom-btn-light' %>
-            <% end %>
+    <div class='col-sm p-0'>
+      <div class='row pos-rel'>
+        <div class='col-sm-6'>
+          <h1>My rides</h1>
         </div>
+        <div class='col-sm-6 pos-abs-bottom'>
+          <%= link_to "Create a ride now!", new_ride_path if @rides.exists? %>
+        </div>
+      </div>
+      <div class="profile-cards-grid">
+        <% if @rides.exists? %>
+          <% @rides.each do |ride| %>
+            <div class="small-card">
+              <p><%= ride.title %></p>
+              <% if ride.bookings.where(status: "pending").count == 0 %>
+                <%= link_to "See bookings", ride_bookings_path(ride) %>
+              <% else %>
+                <%= link_to "See bookings", ride_bookings_path(ride) %>You have <%= ride.bookings.where(status: "pending").count %> pending booking request(s)
+              <% end %>
+              <% if ride.photo.attached? %>
+                <%= cl_image_tag ride.photo.key, height: 100, width: 200, crop: :fill %>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <p>You haven't created any rides yet</p>
+          <%= link_to "Create a ride now!", new_ride_path, class:'btn custom-btn-light' %>
+        <% end %>
+      </div>
+    </div>
 
     <%# my ride requests %>
-    <div class='col-lg-6'>
+    <div class='col-sm p-0'>
       <h1>My ride requests</h1>
       <% if @bookings.exists?  %>
         <% @bookings.each do |booking| %>
