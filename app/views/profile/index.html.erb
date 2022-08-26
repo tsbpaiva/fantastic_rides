@@ -17,10 +17,10 @@
                 <p>
                   <%= ride.title %>
                 </p>
-                <% if ride.bookings.where(status: "pending") == 0 %>
-                  <%= link_to "Bookings",ride_bookings_path(ride) %>
+                <% if ride.bookings.where(status: "pending").count == 0 %>
+                  <%= link_to "Bookings", ride_bookings_path(ride) %>
                 <% else %>
-                  <%= link_to "Bookings",ride_bookings_path(ride) %>You have <%= ride.bookings.where(status: "pending").count %> pending booking request(s)
+                  <%= link_to "Bookings", ride_bookings_path(ride) %>You have <%= ride.bookings.where(status: "pending").count %> pending booking request(s)
                 <% end %>
                 <% if ride.photo.attached? %>
                   <%= cl_image_tag ride.photo.key, height: 200, width: 400, crop: :fill %>
