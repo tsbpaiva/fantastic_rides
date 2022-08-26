@@ -2,7 +2,7 @@
   <div class = "card-content">
     <h2><%= @ride.title %></h2>
     <div class="img">
-      <img src= "<%=@ride.image_url%>" >
+      <%= cl_image_tag @ride.photo.key, height: 300, width: 400, crop: :fill %>
     </div>
     <div class = "ride-content">
       <ul>
