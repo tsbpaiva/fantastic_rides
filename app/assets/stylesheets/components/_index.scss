@@ -23,3 +23,9 @@
   margin-top: 15px;
   text-decoration: none;
 }
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 24px;
+}
