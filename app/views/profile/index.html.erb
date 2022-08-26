@@ -21,16 +21,18 @@
       <div class="profile-cards-grid">
         <% if @rides.exists? %>
           <% @rides.each do |ride| %>
-            <div class="small-card">
-              <p><%= ride.title %></p>
-              <% if ride.bookings.where(status: "pending").count == 0 %>
-                <%= link_to "See bookings", ride_bookings_path(ride) %>
-              <% else %>
-                <%= link_to "See bookings", ride_bookings_path(ride) %>You have <%= ride.bookings.where(status: "pending").count %> pending booking request(s)
-              <% end %>
-              <% if ride.photo.attached? %>
-                <%= cl_image_tag ride.photo.key, height: 100, width: 200, crop: :fill %>
-              <% end %>
+            <div class="ride-card-category"
+                  style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                  url('<%= cl_image_path ride.photo.key if ride.photo.attached?%>')">
+              <div class="profile-small-card">
+                <div><p><%= ride.title %></p></div>
+                <% if ride.bookings.where(status: "pending").count == 0 %>
+                  <div><p><%= link_to "See bookings", ride_bookings_path(ride) %></p></div>
+                <% else %>
+                  <div><p><%= link_to "See bookings", ride_bookings_path(ride) %></p>
+                  <p class='txt-smaller'>You have <%= ride.bookings.where(status: "pending").count %> pending booking request(s)</p></div>
+                <% end %>
+              </div>
             </div>
           <% end %>
         <% else %>
@@ -60,5 +62,3 @@
     </div>
   </div>
 </div>
-
-<%= link_to "Rides", rides_path %>

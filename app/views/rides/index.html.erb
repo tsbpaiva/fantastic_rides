@@ -7,13 +7,13 @@
           <div class="ride-card-category"
           style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
           url('<%= cl_image_path ride.photo.key if ride.photo.attached?%>')">
-          <div class="small-card">
-            <p><%= ride.title %><br>
-            Starting_point:<%= ride.starting_point %><br>
-            Destination:<%= ride.destination %><br>
-            Price:<%= ride.price%><br>
-            </p>
-          </div>
+            <div class="small-card">
+              <p><%= ride.title %><br>
+              Starting point: <%= ride.starting_point.capitalize %><br>
+              Destination: <%= ride.destination.capitalize %><br>
+              Price: <%= ride.price%><br>
+              </p>
+            </div>
           </div>
         <% end %>
       <% end %>
