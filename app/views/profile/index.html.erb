@@ -9,26 +9,36 @@
 <div class='container flex-row justify-content-between'>
   <div class='row'>
     <%# my rides %>
-    <div class='col-sm'>
+    <div class='col-lg-6'>
       <h1>My rides</h1>
           <div class="ride">
-             <% @rides.each do|ride| %>
-            <p>
-              <%= ride.title %>
-            </p>
-             <%= link_to "Bookings for this ride",ride_bookings_path(ride) %>
-             <% if ride.photo.attached? %>
-              <%= cl_image_tag ride.photo.key, height: 200, width: 400, crop: :fill %>
-             <% end %>
-          <% end %>
+            <% if @rides.exists? %>
+              <% @rides.each do|ride| %>
+                <p>
+                  <%= ride.title %>
+                </p>
+                <%= link_to "Bookings for this ride",ride_bookings_path(ride) %>
+                <% if ride.photo.attached? %>
+                  <%= cl_image_tag ride.photo.key, height: 200, width: 400, crop: :fill %>
+                <% end %>
+              <% end %>
+            <% else %>
+              <p>You haven't created any rides yet</p>
+              <%= link_to "Create a ride now!", new_ride_path, class:'btn custom-btn-light' %>
+            <% end %>
         </div>
 
     <%# my ride requests %>
-    <div class='col-sm'>
+    <div class='col-lg-6'>
       <h1>My ride requests</h1>
-      <% @bookings.each do |booking| %>
-        <h5><%= booking.ride.title %></h5>
-        <p class='mx-4'><%= booking.status %></p>
+      <% if @bookings.exists?  %>
+        <% @bookings.each do |booking| %>
+          <h5><%= booking.ride.title %></h5>
+          <p class='mx-4'><%= booking.status %></p>
+        <% end %>
+      <% else %>
+        <p>You haven't requested any rides yet</p>
+        <%= link_to "Find your next ride", rides_path, class:'btn custom-btn-dark' %>
       <% end %>
     </div>
   </div>
